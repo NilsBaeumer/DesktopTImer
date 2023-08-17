@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="timer-container">
+        <div class="input-container">
+            <label>Hours:</label>
+            <input type="number" id="hours">
+            <label>Minutes:</label>
+            <input type="number" id="minutes">
+            <label>Seconds:</label>
+            <input type="number" id="seconds">
+        </div>
+        <button onclick="startTimer()">Start Timer</button>
+        <button onclick="stopTimer()">Stop Timer</button>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div id="time-remaining">00:00:00</div>
+    </div>
+</body>
+</html>
+

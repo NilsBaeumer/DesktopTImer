@@ -2,8 +2,35 @@ let running = false;
 let secondsLeft = 0;
 let interval;
 
-// Sound initialisieren
-let audio = new Audio('/static/alarm.wav');
+// Sound initialization
+let audio = new Audio('/Alarm/RetroAlarm.wav');
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Load dark mode preference from localStorage
+    const body = document.body;
+    const darkModeToggle = document.getElementById("darkModeToggle");
+
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = "Toggle White Mode";  // Ändert den Button-Text
+    } else {
+        darkModeToggle.textContent = "Toggle Dark Mode";  // Standard-Button-Text
+    }
+
+    // Add an event listener to the dark mode toggle button
+    darkModeToggle.addEventListener("click", function() {
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('dark-mode', 'disabled');
+            darkModeToggle.textContent = "Toggle Dark Mode";  // Setzt den Button-Text zurück
+        } else {
+            body.classList.add('dark-mode');
+            localStorage.setItem('dark-mode', 'enabled');
+            darkModeToggle.textContent = "Toggle White Mode";  // Ändert den Button-Text
+        }
+    });
+});
+
 
 function startTimer() {
     let hours = parseInt(document.getElementById('hours').value) || 0;

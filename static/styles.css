@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -94,3 +95,59 @@ button:nth-child(5) {
     background-color: #4CAF50;
 }
 
+/* Dark mode styles */
+
+body.dark-mode {
+    background-color: #1c1c1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .timer-container #time-remaining {
+    color: #e0e0e0;
+}
+
+body.dark-mode .input-container {
+    background-color: #2c2c2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .input-container label {
+    color: #c0c0c0;
+}
+
+body.dark-mode .input-container input {
+    background-color: #3c3c3e;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode button:nth-child(3) {
+    background-color: #4caf50;
+    color: white;
+}
+
+body.dark-mode button:nth-child(4) {
+    background-color: #FFC107;
+    color: white;
+}
+
+body.dark-mode button:nth-child(5) {
+    background-color: #f44336;
+    color: white;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #3c3c3e;
+}
+
+/* Dark mode styles for the toggle button */
+body.dark-mode #darkModeToggle {
+    background-color: #3c3c3e;
+    color: #e0e0e0;
+}
+
+/* Default styles for the toggle button */
+#darkModeToggle {
+    background-color: #fff;
+    color: #333;
+}

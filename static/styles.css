@@ -1,6 +1,5 @@
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Aktualisierte Schriftart */
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -15,9 +14,17 @@ body {
     width: 100%;
 }
 
+#title {
+    font-size: 48px;
+    color: #2c3e50; /* Dunklerer Blauton */
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+
 #time-remaining {
     font-size: 48px;
-    color: #333;
+    color: #2c3e50; /* Dunklerer Blauton */
     margin-bottom: 20px;
 }
 
@@ -25,7 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: #ecf0f1; /* Helle Grauton */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -33,12 +40,12 @@ body {
 
 .input-container label {
     margin-bottom: 10px;
-    color: #555;
+    color: #34495e; /* Dunkler Blauton */
 }
 
 .input-container input {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #bdc3c7; /* Grauton */
     border-radius: 4px;
     margin-bottom: 10px;
     font-size: 16px;
@@ -64,26 +71,26 @@ button:hover {
 
 /* Start-Button */
 button:nth-child(3) {
-    background-color: #4caf50;
+    background-color: #27ae60; /* Grünton */
     color: white;
 }
 
 /* Reset-Button */
 button:nth-child(4) {
-    background-color: #FFC107;  /* Goldfarbe */
+    background-color: #e67e22; /* Orangeton */
     color: white;
 }
 
 /* Stop-Button */
 button:nth-child(5) {
-    background-color: #f44336;
+    background-color: #c0392b; /* Rotton */
     color: white;
 }
 
 .progress-bar {
     width: 80%;
     height: 20px;
-    background-color: #E0E0E0;
+    background-color: #bdc3c7; /* Grauton */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -92,62 +99,80 @@ button:nth-child(5) {
 .progress {
     height: 20px;
     width: 0%;
-    background-color: #4CAF50;
+    background-color: #27ae60; /* Grünton */
 }
 
 /* Dark mode styles */
 
 body.dark-mode {
-    background-color: #1c1c1e;
-    color: #e0e0e0;
+    background-color: #121212;  /* Dunklerer Hintergrund */
+    color: #dcdcdc;  /* Hellgraue Schrift */
 }
 
 body.dark-mode .timer-container #time-remaining {
-    color: #e0e0e0;
+    color: #f8f8f8;  /* Fast weiße Schrift für den Timer */
 }
 
 body.dark-mode .input-container {
-    background-color: #2c2c2e;
-    color: #e0e0e0;
+    background-color: #1f1f1f;  /* Etwas dunklerer Container */
+    color: #dcdcdc;  /* Hellgraue Schrift */
 }
 
 body.dark-mode .input-container label {
-    color: #c0c0c0;
+    color: #b0b0b0;  /* Etwas dunklere Schrift für Labels */
 }
 
 body.dark-mode .input-container input {
-    background-color: #3c3c3e;
-    border: 1px solid #555;
-    color: #e0e0e0;
+    background-color: #2a2a2a;  /* Etwas dunkleres Eingabefeld */
+    border: 1px solid #444;  /* Dunklerer Rand */
+    color: #dcdcdc;  /* Hellgraue Schrift */
+}
+
+body.dark-mode button {
+    background-color: #333;  /* Dunkelgrauer Button-Hintergrund */
+    color: #dcdcdc;  /* Hellgraue Schrift */
+}
+
+body.dark-mode button:hover {
+    background-color: #444;  /* Etwas hellerer Button beim Darüberfahren */
 }
 
 body.dark-mode button:nth-child(3) {
-    background-color: #4caf50;
-    color: white;
+    background-color: #388e3c;  /* Dunkleres Grün */
 }
 
 body.dark-mode button:nth-child(4) {
-    background-color: #FFC107;
-    color: white;
+    background-color: #f57c00;  /* Dunkleres Orange */
 }
 
 body.dark-mode button:nth-child(5) {
-    background-color: #f44336;
-    color: white;
+    background-color: #d32f2f;  /* Dunkleres Rot */
 }
 
 body.dark-mode .progress-bar {
-    background-color: #3c3c3e;
+    background-color: #1f1f1f;  /* Etwas dunklerer Fortschrittsbalken */
 }
 
-/* Dark mode styles for the toggle button */
-body.dark-mode #darkModeToggle {
-    background-color: #3c3c3e;
-    color: #e0e0e0;
+/* Dark mode styles for the toggle icon */
+body.dark-mode #nightModeIcon {
+    display: none;  /* Versteckt das Night Mode Icon im Dark Mode */
 }
 
-/* Default styles for the toggle button */
-#darkModeToggle {
-    background-color: #fff;
-    color: #333;
+body.dark-mode #whiteModeIcon {
+    display: inline-block; /* Zeigt das White Mode Icon im Dark Mode */
+}
+
+/* Default styles for the toggle icon */
+#nightModeIcon, #whiteModeIcon {
+    width: 24px;  /* Breite des Icons */
+    height: 24px; /* Höhe des Icons */
+    position: absolute;
+    top: 10px;    /* Position von oben */
+    right: 20px;  /* Position von rechts */
+    cursor: pointer; /* Zeigt einen Handzeiger, wenn man mit der Maus darüberfährt */
+    transition: filter 0.3s ease;  /* Übergangseffekt für das Filter-Styling */
+}
+
+#nightModeIcon:hover, #whiteModeIcon:hover {
+    filter: brightness(0.7);  /* Etwas helleres Icon beim Darüberfahren mit der Maus */
 }

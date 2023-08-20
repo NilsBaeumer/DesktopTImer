@@ -3,33 +3,42 @@ let secondsLeft = 0;
 let interval;
 
 // Sound initialization
-let audio = new Audio('/Alarm/RetroAlarm.wav');
+let audio = new Audio('static/Alarm/RetroAlarm.wav');
 
 document.addEventListener("DOMContentLoaded", function() {
     // Load dark mode preference from localStorage
     const body = document.body;
-    const darkModeToggle = document.getElementById("darkModeToggle");
+    const nightModeIcon = document.getElementById("nightModeIcon");
+    const whiteModeIcon = document.getElementById("whiteModeIcon");
 
     if (localStorage.getItem('dark-mode') === 'enabled') {
         body.classList.add('dark-mode');
-        darkModeToggle.textContent = "Toggle White Mode";  // Ändert den Button-Text
+        nightModeIcon.style.display = 'inline-block';  // Zeigt das Nightmode-Icon an
+        whiteModeIcon.style.display = 'none';  // Versteckt das Whitemode-Icon
     } else {
-        darkModeToggle.textContent = "Toggle Dark Mode";  // Standard-Button-Text
+        nightModeIcon.style.display = 'none';  // Versteckt das Nightmode-Icon
+        whiteModeIcon.style.display = 'inline-block';  // Zeigt das Whitemode-Icon an
     }
 
-    // Add an event listener to the dark mode toggle button
-    darkModeToggle.addEventListener("click", function() {
+    // Add an event listener to the dark mode toggle icons
+    nightModeIcon.addEventListener("click", toggleDarkMode);
+    whiteModeIcon.addEventListener("click", toggleDarkMode);
+
+    function toggleDarkMode() {
         if (body.classList.contains('dark-mode')) {
             body.classList.remove('dark-mode');
             localStorage.setItem('dark-mode', 'disabled');
-            darkModeToggle.textContent = "Toggle Dark Mode";  // Setzt den Button-Text zurück
+            nightModeIcon.style.display = 'none';
+            whiteModeIcon.style.display = 'inline-block';
         } else {
             body.classList.add('dark-mode');
             localStorage.setItem('dark-mode', 'enabled');
-            darkModeToggle.textContent = "Toggle White Mode";  // Ändert den Button-Text
+            nightModeIcon.style.display = 'inline-block';
+            whiteModeIcon.style.display = 'none';
         }
-    });
+    }
 });
+
 
 
 function startTimer() {

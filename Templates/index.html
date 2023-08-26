@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer App</title>
+    <link rel="icon" href="static/Assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
     <div class="timer-container">
         <h1 id="title">Timer App</h1>
+
+        <!-- Dark Mode Toggle Icons -->
+        <img src="static/Assets/sonne.png" id="nightModeIcon" onclick="toggleDarkMode()" class="mode-icon">
+        <img src="static/Assets/mond.png" id="whiteModeIcon" onclick="toggleDarkMode()" class="mode-icon hidden">
+
+        <!-- Dropdown für Sound-Auswahl -->
+        <button onclick="toggleDropdown()">Wähle einen Sound</button>
+        <div id="soundDropdown" class="dropdown-content hidden">
+             <a href="#" onclick="selectSound('static/Alarm/ClockAlarm.wav')">AlarmClock</a>
+             <a href="#" onclick="selectSound('static/Alarm/RetroAlarm.wav')">RetroAlarm</a>
+             <a href="#" onclick="selectSound('static/Alarm/PoliceAlarm.wav')">PoliceAlarm</a>
+        </div>
+
         <h1 id="time-remaining">00:00:00</h1>
         <div class="input-container">
             <label for="hours">Hours:</label>
@@ -22,16 +36,12 @@
         <button id="startBtn" onclick="startTimer()">Start Timer</button>
         <button id="resetBtn" onclick="resetTimer()" style="display: none;">Reset Timer</button>
         <button id="stopBtn" onclick="stopTimer()">Stop Timer</button>
-        
-        <!-- Ersetzter Dark Mode Toggle Button durch ein Icon -->
-        <img src="static/Assets/sonne.png" id="nightModeIcon" style="display: none;">
-        <img src="static/Assets/mond.png" id="whiteModeIcon" style="display: none;">
-
-
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
     </div>
 </body>
 </html>
+
+
 

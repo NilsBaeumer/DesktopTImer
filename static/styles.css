@@ -176,3 +176,26 @@ body.dark-mode #whiteModeIcon {
 #nightModeIcon:hover, #whiteModeIcon:hover {
     filter: brightness(0.7);  /* Etwas helleres Icon beim Darüberfahren mit der Maus */
 }
+
+/* Default styles for the toggle icon */
+.timer-container #nightModeIcon, .timer-container #whiteModeIcon {
+    width: 24px;  /* Breite des Icons */
+    height: 24px; /* Höhe des Icons */
+    position: absolute;
+    top: 10px;    /* Position von oben */
+    right: 20px;  /* Position von rechts */
+    cursor: pointer; /* Zeigt einen Handzeiger, wenn man mit der Maus darüberfährt */
+    transition: filter 0.3s ease;  /* Übergangseffekt für das Filter-Styling */
+}
+
+.timer-container #nightModeIcon:hover, .timer-container #whiteModeIcon:hover {
+    filter: brightness(0.7);  /* Etwas helleres Icon beim Darüberfahren mit der Maus */
+}
+
+.mode-icon {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

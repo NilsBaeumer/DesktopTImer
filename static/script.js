@@ -2,44 +2,50 @@ let running = false;
 let secondsLeft = 0;
 let interval;
 
-// Sound initialization
 let audio = new Audio('static/Alarm/RetroAlarm.wav');
 
+function toggleDropdown() {
+    const dropdown = document.getElementById("soundDropdown");
+    dropdown.classList.toggle("hidden");
+}
+function toggleDarkMode() {
+    const body = document.body;
+    const nightModeIcon = document.getElementById("nightModeIcon");
+    const whiteModeIcon = document.getElementById("whiteModeIcon");
+
+    if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        nightModeIcon.classList.remove("hidden");
+        whiteModeIcon.classList.add("hidden");
+    } else {
+        body.classList.add("dark-mode");
+        nightModeIcon.classList.add("hidden");
+        whiteModeIcon.classList.remove("hidden");
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Load dark mode preference from localStorage
     const body = document.body;
     const nightModeIcon = document.getElementById("nightModeIcon");
     const whiteModeIcon = document.getElementById("whiteModeIcon");
 
     if (localStorage.getItem('dark-mode') === 'enabled') {
         body.classList.add('dark-mode');
-        nightModeIcon.style.display = 'inline-block';  // Zeigt das Nightmode-Icon an
-        whiteModeIcon.style.display = 'none';  // Versteckt das Whitemode-Icon
+        nightModeIcon.style.display = 'none';  // Hide the Nightmode Icon
+        whiteModeIcon.style.display = 'inline-block';  // Show the Whitemode Icon
     } else {
-        nightModeIcon.style.display = 'none';  // Versteckt das Nightmode-Icon
-        whiteModeIcon.style.display = 'inline-block';  // Zeigt das Whitemode-Icon an
+        nightModeIcon.style.display = 'inline-block';  // Show the Nightmode Icon
+        whiteModeIcon.style.display = 'none';  // Hide the Whitemode Icon
     }
 
     // Add an event listener to the dark mode toggle icons
     nightModeIcon.addEventListener("click", toggleDarkMode);
     whiteModeIcon.addEventListener("click", toggleDarkMode);
-
-    function toggleDarkMode() {
-        if (body.classList.contains('dark-mode')) {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('dark-mode', 'disabled');
-            nightModeIcon.style.display = 'none';
-            whiteModeIcon.style.display = 'inline-block';
-        } else {
-            body.classList.add('dark-mode');
-            localStorage.setItem('dark-mode', 'enabled');
-            nightModeIcon.style.display = 'inline-block';
-            whiteModeIcon.style.display = 'none';
-        }
-    }
 });
 
-
+function selectSound(soundFileName) {
+    audio.src = soundFileName;  // Update the audio source to the selected sound
+}
 
 function startTimer() {
     let hours = parseInt(document.getElementById('hours').value) || 0;
@@ -62,16 +68,16 @@ function startTimer() {
             updateTimeRemaining();
             updateProgressBar();
         } else {
-            audio.play();  // Hier wird der Sound abgespielt
-            stopTimer(false); // Stop-Button wird nicht wieder angezeigt
+            audio.play();  // Play the sound
+            stopTimer(false); // Stop button won't be displayed again
         }
     }, 1000);
 }
 
 function resetTimer() {
     stopTimer();
-    audio.pause();  // Stoppt den Sound
-    audio.currentTime = 0;  // Setzt den Sound zurück
+    audio.pause();  // Stop the sound
+    audio.currentTime = 0;  // Reset the sound to the beginning
     secondsLeft = 0;
     updateTimeRemaining();
     updateProgressBar();

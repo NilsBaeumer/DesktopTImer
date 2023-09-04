@@ -163,4 +163,40 @@ body.dark-mode .progress {
     display: none;
 }
 
+/* Dropdown Menu */
+#soundDropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#soundDropdown button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+#soundDropdown button:hover {
+    background-color: #2980b9;
+}
+
+#dropdownButton {
+    background-color: #ecf0f1;
+    color: #333;
+    padding: 12px 16px;
+    text-align: left;
+    border: none;
+}
+
+#dropdownButton:hover {
+    background-color: #bdc3c7;
+}
 

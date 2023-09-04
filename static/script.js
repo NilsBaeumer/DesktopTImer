@@ -5,8 +5,12 @@ let interval;
 let audio = new Audio('static/Alarm/RetroAlarm.wav');
 
 function toggleDropdown() {
-    const dropdown = document.getElementById("soundDropdown");
-    dropdown.classList.toggle("hidden");
+    const dropdown = document.getElementById('soundDropdown');
+    if (dropdown.style.display === "none" || dropdown.style.display === "") {
+        dropdown.style.display = "flex";
+    } else {
+        dropdown.style.display = "none";
+    }
 }
 function toggleDarkMode() {
     const body = document.body;

@@ -16,13 +16,14 @@
         <img src="static/assets/sonne.png" id="nightModeIcon" onclick="toggleDarkMode()" class="mode-icon">
         <img src="static/assets/mond.png" id="whiteModeIcon" onclick="toggleDarkMode()" class="mode-icon hidden">
 
-        <!-- Dropdown für Sound-Auswahl -->
-        <button onclick="toggleDropdown()">Wähle einen Sound</button>
-        <div id="soundDropdown" class="dropdown-content hidden">
-             <a href="#" onclick="selectSound('static/Alarm/ClockAlarm.wav')">AlarmClock</a>
-             <a href="#" onclick="selectSound('static/Alarm/RetroAlarm.wav')">RetroAlarm</a>
-             <a href="#" onclick="selectSound('static/Alarm/PoliceAlarm.wav')">PoliceAlarm</a>
-        </div>
+<       <!-- Dropdown für Sound-Auswahl -->
+<button onclick="toggleDropdown()" id="dropdownButton">Wähle einen Sound</button>
+<div id="soundDropdown" class="dropdown-content hidden">
+    <button onclick="selectSound('static/Alarm/ClockAlarm.wav')">AlarmClock</button>
+    <button onclick="selectSound('static/Alarm/RetroAlarm.wav')">RetroAlarm</button>
+    <button onclick="selectSound('static/Alarm/PoliceAlarm.wav')">PoliceAlarm</button>
+</div>
+
 
         <h1 id="time-remaining">00:00:00</h1>
         <div class="input-container">
